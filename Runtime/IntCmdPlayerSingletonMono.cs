@@ -43,7 +43,7 @@ public class IntCmdPlayerSingletonMono
     {
         IntCmdPlayerSingleton.NotifyPossibleChanged();
     }
-    public void SetWith(I_IndexIntCmdGet value) { IntCmdPlayerSingleton.GetPlayer().SetValue(value.GetIndexInt()); }
+    //public void SetWith(I_IndexIntCmdGet value) { IntCmdPlayerSingleton.GetPlayer().SetValue(value.GetIndexInt()); }
 
     public override void NotifyChildrenValueChanged()
     {

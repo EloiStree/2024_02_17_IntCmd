@@ -76,7 +76,7 @@ public class IntCmdDigitUtility
 {
 
 
-    internal static bool IsBetweenIncluding(I_IntCmdGet target, IntCmdDigitEnum digitIndex, byte min, byte max)
+    public static bool IsBetweenIncluding(I_IntCmdGet target, IntCmdDigitEnum digitIndex, byte min, byte max)
     {
 
         GetDigitOf(target, digitIndex, out byte b);

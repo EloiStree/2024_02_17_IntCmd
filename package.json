@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.eloistree.intcmd",                              
+  "displayName": "Integer Command",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "Tool to manage Integer as commands.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2024_02_17_IntCmd.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 

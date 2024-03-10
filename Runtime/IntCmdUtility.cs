@@ -61,13 +61,13 @@ public static class IntCmdUtility
          target.SetValue(value);
     }
 
-    internal static void Convert(int intCmd, out IntCmdAsChar m_intChar)
+    public static void Convert(int intCmd, out IntCmdAsChar m_intChar)
     {
             m_intChar = new IntCmdAsChar(intCmd);
          m_intChar.Set(intCmd);
     }
 
-    internal static void Convert(int intCmd, out IntCmdToBinaryBools m_intBinary)
+    public static void Convert(int intCmd, out IntCmdToBinaryBools m_intBinary)
     {
             m_intBinary = new IntCmdToBinaryBools(intCmd);
          m_intBinary.Set(intCmd);
