@@ -67,3 +67,19 @@ public class IntCmdPlayerSingleton
     public static void RemoveListener(PossibleChanged listener) { m_onPossibleChanged -= listener; }
 
 }
+
+
+public class PushIntCmdToPlayerSingletonMono : MonoBehaviour {
+
+
+    public void PushInteger(int value)
+    {
+
+        IntCmdPlayerSingleton.GetPlayer().SetValue(value);
+    }
+    public void PushInteger(string value)
+    {
+        if(int.TryParse(value, out int i))
+            IntCmdPlayerSingleton.GetPlayer().SetValue(i);
+    }
+}
