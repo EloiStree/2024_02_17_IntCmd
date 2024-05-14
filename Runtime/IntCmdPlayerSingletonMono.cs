@@ -10,7 +10,7 @@ public class IntCmdPlayerSingletonMono
 
 
     public UnityEvent<I_IntCmd> m_onValueChanged;
-
+    public UnityEvent<int> m_onValueChangedInt;
     int m_previousValue;
     int m_currentValue;
 
@@ -31,6 +31,7 @@ public class IntCmdPlayerSingletonMono
         {
             m_previousValue = m_currentValue;
             m_onValueChanged.Invoke(GetChildrenIntCmd());
+            m_onValueChangedInt.Invoke(m_currentValue);
         }
     }
 

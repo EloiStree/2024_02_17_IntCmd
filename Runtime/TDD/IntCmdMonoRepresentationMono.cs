@@ -12,7 +12,6 @@ public class IntCmdMonoRepresentationMono : MonoBehaviour
 
     public bool m_refreshButton;
     public int m_int;
-    public string m_decimal;
     public string m_binary;
     public string m_binarySplitByByte;
     public string m_structure;
@@ -58,14 +57,13 @@ public class IntCmdMonoRepresentationMono : MonoBehaviour
         if (m_intCmd == null)
             return;
         m_int = m_intCmd.GetValue();
-        m_decimal = m_int.ToString();
         m_binary = ConvertToBinary(m_int);
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < m_binary.Length; i++)
         {
             sb.Append(m_binary[i]);
-            if (i % 8 == 0) sb.Append(" ");
+            if (i == 0 || i == 7 || i == 15 || i == 23 ) sb.Append(" ");
 
         }
         m_binarySplitByByte = sb.ToString();
@@ -86,7 +84,7 @@ public class IntCmdMonoRepresentationMono : MonoBehaviour
 
     string ConvertToBinary(int number)
     {
-        return System.Convert.ToString(number, 2).PadLeft(32, '0');
+        return System.Convert.ToString(number, 2);
     }
 
     
