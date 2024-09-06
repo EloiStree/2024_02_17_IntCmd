@@ -1,10 +1,12 @@
 
 {                                                                   
-            "name": "be.eloistree.intcmd",          
-    "references": [
+            "name": "be.elab.intcmdEditor",          
+    "references": ["be.elab.intcmd"
 ],                                                              
     "optionalUnityReferences": [],                                  
-    "includePlatforms": [],                                                  
+    "includePlatforms": [                                           
+        "Editor"                                                    
+    ],                                                              
     "excludePlatforms": [],                                         
     "allowUnsafeCode": false,                                       
     "overrideReferences": false,                                    
