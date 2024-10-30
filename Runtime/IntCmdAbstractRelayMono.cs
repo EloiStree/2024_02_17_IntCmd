@@ -1,31 +1,35 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class IntCmdAbstractRelayMono : AbstractIntCmdHolderMono
+namespace Eloi.IID
 {
-    public AbstractIntCmdHolderMono m_toRelay;
-    public UnityEvent<I_IntCmd> m_onRelayInterface;
-    public UnityEvent<int> m_onRelayInt;
-    public int m_lastRelayed;
-
-    public override I_IntCmd GetChildrenIntCmd()
+    public class IntCmdAbstractRelayMono : AbstractIntCmdHolderMono
     {
-        return m_toRelay;
+        public AbstractIntCmdHolderMono m_toRelay;
+        public UnityEvent<I_IntCmd> m_onRelayInterface;
+        public UnityEvent<int> m_onRelayInt;
+        public int m_lastRelayed;
+
+        public override I_IntCmd GetChildrenIntCmd()
+        {
+            return m_toRelay;
+        }
+
+        public override void NotifyChildrenValueChanged()
+        {
+            RelayInteger();
+        }
+
+        [ContextMenu("Relay Integer")]
+        public void RelayInteger()
+        {
+
+            m_lastRelayed = m_toRelay.GetValue();
+            if (m_toRelay != null)
+                m_onRelayInterface.Invoke(m_toRelay);
+            if (m_toRelay != null)
+                m_onRelayInt.Invoke(m_lastRelayed);
+        }
     }
 
-    public override void NotifyChildrenValueChanged()
-    {
-        RelayInteger();
-    }
-
-    [ContextMenu("Relay Integer")]
-    public void RelayInteger() {
-
-        m_lastRelayed = m_toRelay.GetValue();
-        if (m_toRelay != null)
-            m_onRelayInterface.Invoke(m_toRelay);
-        if (m_toRelay != null)
-            m_onRelayInt.Invoke(m_lastRelayed);
-    }
 }
-

@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
+namespace Eloi.IID
+{ 
+    [System.Serializable]
 
 public class IntCmdChangedObserver {
-    [SerializeField] int m_previousIntValue;
-    [SerializeField] int m_currentIntValue;
+        [SerializeField] int m_previousIntValue;
+        [SerializeField] int m_currentIntValue;
 
-    public void SetValue(int value, out bool changed) {
+        public void SetValue(int value, out bool changed) {
 
-        m_previousIntValue = m_currentIntValue;
-        m_currentIntValue = value;
-        changed = m_previousIntValue != m_currentIntValue;
+            m_previousIntValue = m_currentIntValue;
+            m_currentIntValue = value;
+            changed = m_previousIntValue != m_currentIntValue;
+        }
+
     }
-    
-}
 
+}

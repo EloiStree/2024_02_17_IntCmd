@@ -2,34 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntCmdRelayOnChangedMono : MonoBehaviour
+namespace Eloi.IID
 {
-    public IntCmd m_previousValue= new IntCmd();
-    public IntCmd m_currentValue = new IntCmd();
-    public void PushIn(string text)
+    public class IntCmdRelayOnChangedMono : MonoBehaviour
     {
-        if (int.TryParse(text, out int value))
+        public IntCmd m_previousValue = new IntCmd();
+        public IntCmd m_currentValue = new IntCmd();
+        public void PushIn(string text)
         {
-            PushIn(value);
-        
+            if (int.TryParse(text, out int value))
+            {
+                PushIn(value);
+
+            }
         }
-    }
-    public void PushIn(IntCmd value)
-    {
+        public void PushIn(IntCmd value)
+        {
 
-        PushIn(value.GetValue());
-    }
+            PushIn(value.GetValue());
+        }
 
-    public void PushIn(int value)
-    {
-        m_previousValue.SetValue(m_currentValue.GetValue());
-        m_currentValue.SetValue(value);
-        if(m_previousValue.GetValue() != m_currentValue.GetValue() )
-            m_onIntCmdEvent.Invoke(m_currentValue);
+        public void PushIn(int value)
+        {
+            m_previousValue.SetValue(m_currentValue.GetValue());
+            m_currentValue.SetValue(value);
+            if (m_previousValue.GetValue() != m_currentValue.GetValue())
+                m_onIntCmdEvent.Invoke(m_currentValue);
+        }
+
+
+        public IntCmdEvent m_onIntCmdEvent;
+
     }
-   
-   
-    public IntCmdEvent m_onIntCmdEvent;
 
 }
-
